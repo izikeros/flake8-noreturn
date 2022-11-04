@@ -10,18 +10,16 @@ repos:
       - id: check-case-conflict       # checks for files that would conflict in case-insensitive filesystems.
       - id: check-merge-conflict      # checks for files that contain merge conflict strings.
       - id: trailing-whitespace       # trims trailing whitespace.
-      - id: check-yaml                # checks yaml files for parseable syntax.
       - id: check-toml                # checks toml files for parseable syntax.
       - id: end-of-file-fixer         # ensures that a file is either empty, or ends with one newline.
       - id: mixed-line-ending         # replaces or checks mixed line ending.
       - id: detect-private-key        # detects the presence of private keys.
       - id: fix-byte-order-marker     # removes utf-8 byte order marker.
-      - id: check-executables-have-shebangs      # ensures that (non-binary) executables have a shebang.
       # - id: check-shebang-scripts-are-executable # ensures that (non-binary) files with a shebang are executable.(raises false positives on macOS)
 
   # A tool to automatically upgrade syntax for newer versions of the python language.
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.37.3
+    rev: v3.2.0
     hooks:
       - id: pyupgrade
         args: [ --py310-plus ]
@@ -45,11 +43,9 @@ repos:
 
   # The uncompromising code formatter
   - repo: https://github.com/psf/black
-    rev: 22.8.0
+    rev: 22.10.0
     hooks:
       - id: black
-
-
 
   # A tool to automatically fix common style issues in Python code. Has plugins.
   - repo: https://github.com/pycqa/flake8
