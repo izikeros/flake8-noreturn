@@ -4,6 +4,8 @@ import re
 import sys
 from textwrap import dedent
 
+import pytest
+
 if sys.version_info >= (3, 8):
     from importlib.metadata import version
 else:
@@ -12,14 +14,12 @@ else:
 message_NR001 = "NR001 Using -> None."
 
 
+@pytest.mark.skip(reason="Version not implemented yet")
 def test_version(flake8_path):
     result = flake8_path.run_flake8(["--version"])
     version_regex = r"flake8-noreturn:( )*" + version("flake8-noreturn")
     unwrapped = "".join(result.out_lines)
     assert re.search(version_regex, unwrapped)
-
-
-# NR001
 
 
 def test_NR001_pass_variable_declaration_None(flake8_path):
