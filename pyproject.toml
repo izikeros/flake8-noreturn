@@ -4,11 +4,15 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "flake8-noreturn"
-version = "1.0.0"
+version = "1.0.1"
 description = "A flake8 plugin to detect return None (-> None) type hints."
 authors = ["Krystian Safjan <ksafjan@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://github.com/izikeros/flake8-noreturn"
+repository = "https://github.com/izikeros/flake8-noreturn"
+documentation = "https://github.com/izikeros/flake8-noreturn"
+
 packages = [{include = "flake8_noreturn"}]
 
 [tool.poetry.dependencies]
