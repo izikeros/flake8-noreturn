@@ -22,14 +22,16 @@ class NoReturnChecker:
 
     def run(self) -> Generator[tuple[int, int, str, type[Any]], None, None]:
         for node in ast.walk(self.tree):
-            if isinstance(node, ast.FunctionDef) and node.returns is not None:
-                # check if node has attribute id
-                if not hasattr(node.returns, "id"):
-                    if hasattr(node.returns, "value"):
-                        if not hasattr(node.returns.value, "id"):
-                            yield (
-                                node.lineno,
-                                node.col_offset,
-                                self.message_NR001,
-                                type(self),
-                            )
+            if (
+                isinstance(node, ast.FunctionDef)
+                and node.returns is not None
+                and not hasattr(node.returns, "id")
+                and hasattr(node.returns, "value")
+                and not hasattr(node.returns.value, "id")
+            ):
+                yield (
+                    node.lineno,
+                    node.col_offset,
+                    self.message_NR001,
+                    type(self),
+                )
