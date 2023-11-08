@@ -6,12 +6,10 @@ build-backend = "poetry.core.masonry.api"
 name = "flake8-noreturn"
 version = "1.0.1"
 description = "A flake8 plugin to detect return None (-> None) type hints."
-authors = ["Krystian Safjan <ksafjan@gmail.com>"]
-license = "MIT"
+authors = [{name="Krystian Safjan", email="ksafjan@gmail.com"}]
+license = { text = "MIT" }
 readme = "README.md"
-homepage = "https://github.com/izikeros/flake8-noreturn"
-repository = "https://github.com/izikeros/flake8-noreturn"
-documentation = "https://github.com/izikeros/flake8-noreturn"
+
 
 packages = [{include = "flake8_noreturn"}]
 
@@ -23,6 +21,8 @@ flake8 = "^5.0.4"
 pytest = "^7.2.0"
 pytest-flake8-path = "^1.3.0"
 pytest-randomly = "^3.12.0"
+pytest-icdiff = "^0.6"
+pytest-clarity = "^1.0.1"
 
 [tool.black]
 target-version = ['py38']
@@ -56,3 +56,17 @@ addopts = """\
 
 [project.entry-points]
 "flake8.extension" = {NR = "noreturn:NoReturnChecker"}
+
+[project]
+classifiers = [
+"Typing :: Typed",
+"Environment :: Console",
+"License :: OSI Approved :: MIT License",
+"Operating System :: OS Independent",
+"Programming Language :: Python :: 3",
+"Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+"Source" = "https://github.com/izikeros/flake8-noreturn"
+"Bug Tracker" = "https://github.com/izikeros/flake8-noreturn/issues"
